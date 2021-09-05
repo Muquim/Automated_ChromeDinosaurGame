@@ -1,0 +1,23 @@
+import pyautogui #pip install pyautogui
+from PIL import Image, ImageGrab #pip install pillow
+import time
+
+def takeScreenshot():
+    image= ImageGrab.grab().convert('L')
+    return image
+
+if __name__ == "__main__":
+    time.sleep(3)
+    image= takeScreenshot()
+    data=image.load()
+    #birds
+    for i in range(365,380):
+        for j in range(345,360):
+            data[i,j]=170
+    
+    
+    #cactus
+    for i in range(325,345):
+        for j in range(410,485):
+            data[i,j]=0
+    image.show()
